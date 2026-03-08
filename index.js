@@ -1,76 +1,46 @@
-// // ----------------------------------------DATA TYPE----------------------------------------
-// // javascript has 8 data types: number, string, boolean, undifine, null, symbol, object
-// // check typeof data
-// let address;
-// let age = 20;
-// let name = "Dedi Semara"
-// let isGraduated = true;
-// let middleName = null
+// ----------------------------------------OPERATOR----------------------------------------
+// unary, binary, ternary
+// example binary operator (2 ** 1), (2 + 3), (2 / 1), (let num = 2 + 3)
+// 2 * 3 ===> 2 and 3 is Operand ===> * is Operator
+// num = num + 1 --equal to-- num +=1 --equal to-- num++
+// ++ = increment operator // -- = decrement operator
+// Numeric operators ==> (+ is aditional), (- is substraction), (* is multiplication), (/ is Division), (** is Exponential)
+// Relational Operator ==> (< is less than), (<= less than or equal to), (> is greater than), (>= greater than or equal to), (== equal to), (!= not equal to)
+// how to compare 2 string
+// it will false because decimal representation (binary) from falue string
+console.log("cat" < "car");
+console.log("A" > "a");
+// compare number
+console.log(8 > 2);
+console.log("8" === 8 );
 
-// console.log(typeof address);
-// console.log(typeof age);
-// console.log(typeof name);
-// console.log(typeof isGraduated);
-// // typeof null === "object" is a bug, but fixing it would break a lot of code on the global web === this bug come from creator javascript
-// console.log(typeof middleName); 
-// // type conversion -> typeof typeof boolean to string
-// console.log(typeof typeof true);
+// ------------------------------------Operator Precedence----------------------------------------
+// List precedence ==> [(18 = ')(' gruping)], (13 = '**' exponetiation), (12 = '*' and '/'), (11 = + and -), (2 = '=')
+let result = 1 + 1 * 3;
+console.log(result);
+let result1 = (1 + 1) * 3;
+console.log(result1);
+// Operator with string -> value variable is stirng, example value string 62
+let numSting = 2 + 4 + "2"
+console.log(numSting + ' ' + typeof numSting);
 
-// // -----------Type Conversion Manual-------------
-// // if value save as string, it use more memory because it read "2" and "0" 
-// // but if it read as number it will read only 20
-// // number to string
-// let age = 20;
-// let converted = String(age);
-// console.log(typeof converted);
-// // string to number
-// let str = "123";
-// let num = Number(str);
-// console.log(typeof num);
-// // boolean true
-// console.log(Boolean(1));
-// console.log(Boolean("false"));
-// console.log(Boolean(" "));
-// // boolean false
-// console.log(Boolean(0));
-// console.log(Boolean(""));
-// console.log(Boolean(null));
+// ------------------------------------Variable Naming----------------------------------------
+// example (camel case = variableNaming), (pascal case = VariableNaming), (snakecase = variable_naming), (kebab case = variable-naming), (flat case = variablenaming) 
 
-// // -----------Type Automatic Conversion === type coercion-------------
-// // it will run because bug of system javascript === it will convert string to number automatic
-// // (* or /) it will run matematic operation
-// let result = "8" / "2";
-// console.log(result);
-// console.log(typeof result);
-// // example (+). JavaScript provides several methods for string concatenation, the process of joining two or more strings into a single string. The most common methods are using the + operator
-// let age = 20;
-// let text = age + " years old";
-// console.log(text);
-// console.log(typeof text);
-// // hexadecimal
-// let number = 0x7D;
-// console.log(number);
-// // hexadecimal from sting
-// let str = '7D';
-// const num = Number.parseInt(str, 16);
-// console.log(num);
-// let str1 = '10';
-// const num1 = Number.parseInt(str1, 16);
-// console.log(num1);
-// const num2 = Number.parseInt(str1);
-// console.log(num2);
+let lastName = "Semara"; //camel case
+let LastName = "Semara"; //pascal case
+let last_name = "Semara"; //snake case
+console.log(lastName + " " + LastName + " " + last_name);
 
-// ----------- Equality Operator-------------
-// in database endcoding "A" == 65 and "a" == 97
-console.log(Boolean("a" == "A"));
-// unique case in javascript because type coersion in "=="
-console.log(Boolean("10" == 10));
-// if you want to stike role use two step process "==="
-// 1. are the data type the same 2. do === process
-// example false
-console.log(Boolean("10" === 10));
-// example true
-console.log(Boolean(10 === 10));
-// example false because not equality
-console.log(Boolean(5 !==  5));
-// note: always use (=== or !==)
+// ------------------------------------Constant----------------------------------------
+// runtime constant && compile time constant
+// runtime constant use const to identify variable
+const name = "Dedi"; //runtime constant
+// name = "jhon"; // runtime time error
+// compile time constant use capital text on sting variable. its for standart value (ex: mount in a year, pi, Eart radius)
+const EARTH_RADIUS = 6371;
+const GRAVITY = 9.80665;
+const PI = 3.14 // compile time constant
+
+const value = 5 * 4;
+console.log(value);
