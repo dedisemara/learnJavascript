@@ -1,46 +1,76 @@
-// ----------------------------------------OPERATOR----------------------------------------
-// unary, binary, ternary
-// example binary operator (2 ** 1), (2 + 3), (2 / 1), (let num = 2 + 3)
-// 2 * 3 ===> 2 and 3 is Operand ===> * is Operator
-// num = num + 1 --equal to-- num +=1 --equal to-- num++
-// ++ = increment operator // -- = decrement operator
-// Numeric operators ==> (+ is aditional), (- is substraction), (* is multiplication), (/ is Division), (** is Exponential)
-// Relational Operator ==> (< is less than), (<= less than or equal to), (> is greater than), (>= greater than or equal to), (== equal to), (!= not equal to)
-// how to compare 2 string
-// it will false because decimal representation (binary) from falue string
-console.log("cat" < "car");
-console.log("A" > "a");
-// compare number
-console.log(8 > 2);
-console.log("8" === 8 );
+// ----------------------------------------CONDITIONAL----------------------------------------
+// logical operator : (! Logical NOT), (&& logical AND), (|| logical OR), (& Bitwise AND), (| Bitwise OR)
 
-// ------------------------------------Operator Precedence----------------------------------------
-// List precedence ==> [(18 = ')(' gruping)], (13 = '**' exponetiation), (12 = '*' and '/'), (11 = + and -), (2 = '=')
-let result = 1 + 1 * 3;
-console.log(result);
-let result1 = (1 + 1) * 3;
-console.log(result1);
-// Operator with string -> value variable is stirng, example value string 62
-let numSting = 2 + 4 + "2"
-console.log(numSting + ' ' + typeof numSting);
+// logical NOT operator (true --> false) and (false -> true)
+const hasMarried = false;
+const inverted = !hasMarried;
+console.log(inverted);
 
-// ------------------------------------Variable Naming----------------------------------------
-// example (camel case = variableNaming), (pascal case = VariableNaming), (snakecase = variable_naming), (kebab case = variable-naming), (flat case = variablenaming) 
+// logical && AND
+const hasTicket = true;
+const isAdult = false;
+const canEnter = hasTicket && isAdult;
+console.log(canEnter); //example false
 
-let lastName = "Semara"; //camel case
-let LastName = "Semara"; //pascal case
-let last_name = "Semara"; //snake case
-console.log(lastName + " " + LastName + " " + last_name);
+// Logical || OR
+const isStudent = false;
+const isSenior = true;
+const getDicount = isStudent || isAdult;
+console.log(getDicount); //example true
 
-// ------------------------------------Constant----------------------------------------
-// runtime constant && compile time constant
-// runtime constant use const to identify variable
-const name = "Dedi"; //runtime constant
-// name = "jhon"; // runtime time error
-// compile time constant use capital text on sting variable. its for standart value (ex: mount in a year, pi, Eart radius)
-const EARTH_RADIUS = 6371;
-const GRAVITY = 9.80665;
-const PI = 3.14 // compile time constant
+// conditional branching
+// [if statement] [switch statement] [ternary]
+// if statement
+const testScore = 60;
+if (testScore >= 80){
+    console.log("Bagus");
+} else if(testScore >= 60){
+    console.log("Biasa")
+}else {
+    console.log("Tidak lulus")
+};
 
-const value = 5 * 4;
-console.log(value);
+// switch statement
+const day = 2;
+switch (day){
+    case 1: // this mean day === 1
+        console.log("Monday");
+        break;
+    case 2:
+        console.log("Tuesdau");
+        break;
+    case 3:
+        console.log("Wednesday");
+        break;
+    case 4:
+        console.log("Thursday");
+        break;
+    case 5:
+        console.log("Friday");
+        break;
+    case 6:
+        console.log("Saturday");
+        break;
+    case 7:
+        console.log("Sunday");
+        break;
+    default:
+        console.log("Unknown day");
+        break;
+};
+
+// Ternary operator ----> reminder operator
+let reminder = 11 % 3
+console.log(reminder);
+
+let reminderMins = 2 % 3
+console.log(reminderMins);
+
+const number = 5;
+const isEven =  number % 2 === 0;
+console.log(isEven);
+
+// use library from NPM
+const readline = require("readline-sync");
+const name = readline.question("Enter a name: ");
+console.log("Nama saya adalah " + name);
