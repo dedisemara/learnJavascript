@@ -1,76 +1,41 @@
-// ----------------------------------------CONDITIONAL----------------------------------------
-// logical operator : (! Logical NOT), (&& logical AND), (|| logical OR), (& Bitwise AND), (| Bitwise OR)
-
-// logical NOT operator (true --> false) and (false -> true)
-const hasMarried = false;
-const inverted = !hasMarried;
-console.log(inverted);
-
-// logical && AND
-const hasTicket = true;
-const isAdult = false;
-const canEnter = hasTicket && isAdult;
-console.log(canEnter); //example false
-
-// Logical || OR
-const isStudent = false;
-const isSenior = true;
-const getDicount = isStudent || isAdult;
-console.log(getDicount); //example true
-
-// conditional branching
-// [if statement] [switch statement] [ternary]
-// if statement
-const testScore = 60;
-if (testScore >= 80){
-    console.log("Bagus");
-} else if(testScore >= 60){
-    console.log("Biasa")
-}else {
-    console.log("Tidak lulus")
+// ----------------------------------------LOOP----------------------------------------
+// while loop
+let count = 0;
+while (count < 3) {
+    console.log('Hello World!');
+    count = count + 1;
 };
 
-// switch statement
-const day = 2;
-switch (day){
-    case 1: // this mean day === 1
-        console.log("Monday");
-        break;
-    case 2:
-        console.log("Tuesdau");
-        break;
-    case 3:
-        console.log("Wednesday");
-        break;
-    case 4:
-        console.log("Thursday");
-        break;
-    case 5:
-        console.log("Friday");
-        break;
-    case 6:
-        console.log("Saturday");
-        break;
-    case 7:
-        console.log("Sunday");
-        break;
-    default:
-        console.log("Unknown day");
-        break;
+let number = 0;
+while (number <2) {
+    console.log('Om swastyastu');
+    number += 1;
 };
 
-// Ternary operator ----> reminder operator
-let reminder = 11 % 3
-console.log(reminder);
+let value = 1;
+while (value < 4) {
+    console.log('Hii');
+    value++;
+};
 
-let reminderMins = 2 % 3
-console.log(reminderMins);
+// do while loop
+let doNumber = 0;
+do{
+    console.log('semara');
+    doNumber++;
+}while (doNumber < 3);
 
-const number = 5;
-const isEven =  number % 2 === 0;
-console.log(isEven);
-
-// use library from NPM
-const readline = require("readline-sync");
-const name = readline.question("Enter a name: ");
-console.log("Nama saya adalah " + name);
+// for loop
+for (let forNumber = 0; forNumber < 3; forNumber++) {
+    console.log(forNumber);
+}
+console.log('End');
+// combination with contional value
+for (let forConditional = 0; forConditional < 10; forConditional++) {
+    if(forConditional % 2 === 0) {
+        console.log("Angka " + forConditional + " adalah bilangan genap");
+    }else {
+        console.log("Angka " + forConditional + " adalah bilangan ganjil");
+    }
+}
+console.log('End 2');
