@@ -1,83 +1,48 @@
-// ----------------------------------------FUNCTION----------------------------------------
-// syntac 
-// function name(parameter) {
-// block statement
-// }
-// example
-function double(num) { // declare
-    return num * 2; // declare
-} //declare
-double(3); // use
-const doubleOf3 = double(3);
-const doubleOf5 = double(5);
-const doubleOf = double(double(5));
-console.log(doubleOf3);
-console.log(doubleOf5);
-console.log(doubleOf);
+// ----------------------------------------MORE ABOUT FUNCTION----------------------------------------
+// function expression --> in javascript, function is a value
+const age = 19;
+let logGreating;
 
-// function can have multiple parameters
-function calculationRectangleArea(width, height) {
-    return width * height;
-}
-const area = calculationRectangleArea(5, 4);
-console.log('Rectangle Area: ' + area);
-const readlineSync = require('readline-sync');
-const widthInput = readlineSync.question('Please input width value: ');
-const heightInput = readlineSync.question('Please input height value: ');
-const area1 = calculationRectangleArea(widthInput, heightInput);
-console.log('Rectangle Area from input data: ' + area1);
-
-// void function
-function logGreeting(name) {
-    console.log('Hello, ' + name + '!');
-}
-logGreeting('Dedi');
-logGreeting('Semara');
-
-// Function without parameters
-function logMenu() {
-    console.log('==MAIN MENU==');
-    console.log('1. Sate Kambing');
-    console.log('2. Nasi Goreng');
-    console.log('3. Ayam Goreng');
-}
-logMenu();
-
-// Function with looping
-function sumTo(n) {
-    let total = 0;
-    for(let i = 1; i <= n; i++) {
-        total += i;
+if (age <= 12) {
+    logGreating = function() {
+        console.log('Selamat siang adik-adik!');
+    };
+} else if (age <=  18) {
+    logGreating = function() {
+        console.log('Selamat pagi teman-teman!');
+    };
+} else {
+    logGreating = function() {
+        console.log('selamat siang bapak/ibu!')
     }
-    return total;
 }
-const dataTotal = sumTo(8);
-console.log(dataTotal);
+logGreating();
 
-// Javascript built in function
-// math function
-console.log(Math.floor(3.2)); // 3 rounding decimal numbers down
-console.log(Math.ceil(3.2)); // 4 rounding decimal numbers up
-console.log(Math.round(3.2)); // 3 rounding use role (if decimal value < 0,5 it will make rounding down; if decimal value >= 0,5 it will be rounded up)
-console.log(Math.trunc(3.2)); // 3 if will errase decimal value
-// diverent trunc and round
-console.log(Math.floor(4.7)); // 4
-console.log(Math.trunc(4.7)); // 4
-console.log(Math.floor(-4.7)); // -5 (value = - x - floor)
-console.log(Math.trunc(-4.7)); //-4
-// math random created Math.random()
-console.log(Math.random());
-// Example: generating random values ​​with a JavaScript function. The resulting value must be a rounded value (floor).
-function generateRandomValue() {
-    return Math.floor(Math.random() * 10);
+// combine two function as a variable
+function name(calc) {
+    return calc(4 , 5);
 }
-console.log(generateRandomValue());
+function sum(a, b) {
+    return a + b;
+}
+const result = name(sum);
+console.log(result);
 
-/**
- * `generateRandomNumber` is a function that
- * return a numbers between 0 to 5
- */
-function generateRandomNumber() {
-    return Math.floor(Math.random() * 6);
+// block body arrow function
+const double = n => {
+    return n * 2;
 }
-console.log(generateRandomNumber());
+const resultDouble = double(16);
+console.log(resultDouble)
+
+// concise body arrow function
+const double1 = n => n * 2;
+console.log(double1(72));
+
+// concise body arrow function with two param
+const sumFunction = (a , b) => a + b;
+console.log(sumFunction(100 , 86));
+
+// concise body arrow function without params
+const hello = () => console.log('Hello World');
+hello();
