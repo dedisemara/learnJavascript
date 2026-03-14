@@ -1,83 +1,58 @@
-// ----------------------------------------OBJECT----------------------------------------
+// ----------------------------------------MORE ABOUT OBJECT----------------------------------------
 // example
+const age = 25;
 const person = {
     name: 'Dedi',
-    age: '12',
-    addres: 'Bali',
-    gender: 'Male',
+    age: age,
 };
-console.log(person.name); // simple way to get data object (obj.key)
-console.log(person['name']); // this is the main process and the same value output
+console.log(person);
 
-// how to change property/key value on data object
-person.name = 'Semara Ganteng';
-console.log('After change object key: ' + person.name);
-console.log(`Hallo nama saya ${person.name} umur saya ${person.age} tinggal di ${person.addres}`);
-
-// but why in const varibale we can change value?
-// this not change value const but we change object value inside variable
-// false example
-// person = 'dedi'; // show compile time error
-
-// know we want to create a data object with space ( ) on initial
-const person2 = {
-    'first name': 'Dedi',
-    'last name': 'Semara',
-    age: 12, 
+// or you can create like this
+// this is call property shorthand
+const age1 = 40;
+const person1 = {
+    name1: 'Semara',
+    age1, // --> age1: age1,
 };
-console.log(person2['first name']); // we can call this property with basic process, but in real case we will rarely find the use of this code
+console.log(person1);
 
-// this is the correct spelling used cammel case
-const person3 = {
-    firstName: 'Dedi',
-    lastName: 'Semara',
-    age: 12,
+// Check whether a property exist
+console.log(person.name !== undefined); // this one is exist and value is true
+console.log(person.address !== undefined); // this on is not exist and value is false
+// this approach as weekness
+const menu = {
+    sate: undefined,
 };
+console.log(menu.sate !== undefined);
+// this way to check properly
+// in operator
+// syntax  -->  key in obj --> but key value should be string
+console.log('name' in person);
+console.log('address' in person);
+console.log('sate' in menu);
 
-// we also can add property values on previes property
-const person4 = {
-    name: {
-        first: 'Bracuk',
-        middle: 'putu',
-        last: 'Putra',
-    },
-    weight: 20
+// there is no numeric key in javascript
+const countryCodes = {
+    1: 'United States', //--> will converted like this '1': 'United States'
+    62: 'Indonesia',// --> '62': 'Indonesia'
+    86: 'China', // --> '86': 'China'
 };
-console.log('print property on value property: ' + person4.name.first);
-console.log('with another way: ' + person4['name']['first']);
-
-// check data type of object
-const rectangle = {
-    witdth: 5,
-    height: 3,
-};
-console.log('check type of value: ' + typeof rectangle);
-
-// computed property name
-const categori = "Food";
-
-const expense = {
-    [categori] : 5000
-};
-console.log(expense);
-console.log(expense[categori]); // it will print value of properties
-
-// example for using loop to print all key value
-const payment = {
-    "security-1": 1200000,
-    "security-2": 2300000,
-    "security-3": 3500000, 
-};
-
-for(let i = 1; i <= 3; i++){
-    const value = payment[`security-${i}`];
-    console.log(value);
+for (const key in countryCodes) {
+    const value = countryCodes[key];
+    console.group(value);
 }
 
-// trailing comma
-// this is for clean reading at git diff
-// example to writing object like propesional programer
-const sumByGender = {
-    male: 2000,
-    female: 3400, //you should use comma at the end of object key
+// deep dive into ECMAScript
+// this is standart for all compiler to us
+
+// for in loop
+// rule 1.  integer properties are shorted
+// role 2.  others appears the same like it's define
+const currencySymbols = {
+    usd: '$',
+    eur: '€',
+    jpn: '¥',
 };
+for (const code in countryCodes) {
+    console.log(code);
+}
