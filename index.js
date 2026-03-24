@@ -1,58 +1,63 @@
-// ----------------------------------------MORE ABOUT OBJECT----------------------------------------
+// -------------------------------MORE ABOUT OBJECT #2----------------------------------------
+// example 1
+let price = 100;
+let copyprice = price;
+copyprice = 200;
+console.log(copyprice); // value 200
+console.log(price); // value 100
+
+// example 2
+let rectangle = { width: 5, height: 3, };
+let copyrectangle = rectangle;
+copyrectangle.width = 15;
+console.log(copyrectangle.width); // value {width: 15}
+console.log(rectangle.width); // value {width: 15}
+
+// object copy by reference but if not object will copy by value
+
+// now lets doing the right copy
+let rectangle1 = { width: 5, height: 3, };
+let copyrectangle1 = {
+    width: rectangle1.width,
+    height: rectangle1.height
+}
+copyrectangle1.width = 15;
+console.log('Right value copy by reference: ')
+console.log(copyrectangle1.width); // value 15
+console.log(rectangle1.width); // value 5
+
+// or use object assign to sparate referenece
+let rectangle2 = { width: 5, height: 3, };
+let copyrectangle2 = Object.assign({}, rectangle2);
+copyrectangle2.width = 15;
+console.log('Right value copy by reference use assign: ')
+console.log(copyrectangle2.width); // value 15
+console.log(rectangle2.width); // value 5   
+
+// -------------------------------ternary operator----------------------------------------
+const temperature = 38;
+
+const result = temperature >= 37 ? 'sick' : 'healthy';
+console.log(result); // value is 'sick'
+
+// this code call ninja code. NOT RECOMENDED FOR PROFESSIONAL PROGRAMMERS
 // example
-const age = 25;
-const person = {
-    name: 'Dedi',
-    age: age,
-};
-console.log(person);
+const age = 1; 
+// <= 5 == 'balita'
+// 5 - 17 == 'anak-anak'
+// 18 == 'dewasa'
+const result1 = age < 18 ? age < 5 ? 'balita' : 'anak-anak' : 'dewasa';
+console.log(result1); // value is 'balita'
 
-// or you can create like this
-// this is call property shorthand
-const age1 = 40;
-const person1 = {
-    name1: 'Semara',
-    age1, // --> age1: age1,
-};
-console.log(person1);
-
-// Check whether a property exist
-console.log(person.name !== undefined); // this one is exist and value is true
-console.log(person.address !== undefined); // this on is not exist and value is false
-// this approach as weekness
-const menu = {
-    sate: undefined,
-};
-console.log(menu.sate !== undefined);
-// this way to check properly
-// in operator
-// syntax  -->  key in obj --> but key value should be string
-console.log('name' in person);
-console.log('address' in person);
-console.log('sate' in menu);
-
-// there is no numeric key in javascript
-const countryCodes = {
-    1: 'United States', //--> will converted like this '1': 'United States'
-    62: 'Indonesia',// --> '62': 'Indonesia'
-    86: 'China', // --> '86': 'China'
-};
-for (const key in countryCodes) {
-    const value = countryCodes[key];
-    console.group(value);
+// you should select this method for professional
+let category;
+if (age <  5){
+    category = 'balita';
+} else if (age < 18){
+    category = 'anak-anak';
+} else {
+    category = 'dewasa';
 }
 
-// deep dive into ECMAScript
-// this is standart for all compiler to us
+console.log(category); // value is 'dewasa'
 
-// for in loop
-// rule 1.  integer properties are shorted
-// role 2.  others appears the same like it's define
-const currencySymbols = {
-    usd: '$',
-    eur: '€',
-    jpn: '¥',
-};
-for (const code in countryCodes) {
-    console.log(code);
-}
