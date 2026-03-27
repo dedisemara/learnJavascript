@@ -119,3 +119,5 @@ const rectangle5 = new Rectangle(2, 30);
 console.log(rectangle3.getArea());
 console.log(rectangle4.getArea());
 console.log(rectangle5.getArea());
+
+// fix contributor. couse i use new device
