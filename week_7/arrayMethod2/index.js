@@ -38,10 +38,24 @@ fruit.forEach(callback);
 const str = 'JavaScript is fun';
 // example on array
 console.log(str.indexOf('is'));
-const fruit1 = ['banana', 'pear', 'manggo', 'water mellon', 'orang'];
+const fruit1 = ['banana', 'pear', 'manggo', 'water mellon', 'orang', 'banana'];
 console.log(fruit1.indexOf('banana'));
+// inside the method indexOf
+fruit1.indexOf = function(el){
+    for (let i = 0; i < fruit1.length; i++){
+        const fruit = fruit1[i];
+        if (fruit === el){
+            return i;
+        }
+    }
+    return -1;
+};
+
 // when we use indexOf but array fruit doesn't have value we search it will show -1
 console.log(fruit1.indexOf('jambu'));
+// if you want search value from last value array, use these think
+console.log('last index banana : ' + fruit1.lastIndexOf('banana'));
+
 // then you sould use include method to return value as boolean
 if (fruit1.includes('banana')){
     console.log('The array contain banana');
@@ -55,12 +69,40 @@ const products = [
     {id: 102, name: 'Notebook'},
     {id: 103, name: 'Eraser'},
 ];
+// find value
+const findValue = products.find(function(value){
+    return value.id === 102;
+});
+console.log(findValue);
+// behine the scane of find is this function
+products.find = function(callbackFn){
+    for( let i =0; i < products.length; i++) {
+        const product = this[i];
+        if(callbackFn(product)){
+            return product;
+        }
+    }
+};
+
+
+// find index
 const index = products.findIndex(function(product){
     return product.id === 103;
 }); 
+// behine the scane of findIndex is this function
+products.findIndex = function(callbackFn){
+    for( let i =0; i < products.length; i++) {
+        const product = this[i];
+        if(callbackFn(product)){
+            return i;
+        }
+    }
+};
+
 const foundProduct = products[index];
 console.log(foundProduct);
 console.log(index);
+console.log(foundProduct.name);
 // if you need value not index, then use this thing
 const value = products.find(function(product){
     return product.id === 103;
@@ -84,3 +126,12 @@ const nameUpperCase = names.map(function(pilih){
     return pilih.toUpperCase();
 })
 console.log(nameUpperCase);
+
+// inside of mapping an array
+const simulateUpperCase = [];
+for(let i = 0; i < names.length; i++){
+    const name = names[i];
+    const convertUpperCase = name.toUpperCase();
+    simulateUpperCase.push(convertUpperCase);
+};
+console.log(simulateUpperCase);
