@@ -37,3 +37,7 @@ for (let i = 0; i < count; i++){
 }
 
 console.timeEnd('Map Read');
+
+// map is more faster than object
+// if we use add, shorting, deleting object is slowly than map
+// but object is more simple to code and usable if we not using so many method
