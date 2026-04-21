@@ -26,14 +26,3 @@ for (const num of firstRange){
 for (const num of secondRange){
     console.log(num);
 }
-
-
-// using case interval date
-// function interval(start, end) {
-
-// }
-
-// const interval = new interval(
-//     new Date(1, 1, 2020),
-//     new Date(1, 1, 2026)
-// )
